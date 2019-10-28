@@ -17,11 +17,16 @@ int max=10 ;
 int maxsec=6 ;
 int last=0;
 int button=0; //input 
+int run=0
 char a [10]={ 0x7E,0x30,0x6D,0x79,0x33,0x5B,0x5F,0x70,0x7F,0x7B};   // Array setup to save the values I will uses on my outputs to display numbers on the seven segment   
 SysInit();    
-while (1)  {
+while (1)  
+{
       button=PORTA;
-      if (button != last)
+      if(button == 1 && last == 0)
+            run != run;
+      if (run == 1)
+      button=last;
       {    // start running the counter. 
             for (d = min; d < maxsec; d++) 
             {
@@ -35,7 +40,6 @@ while (1)  {
                         {
                               PTAD=a[m];
                               delay(); 
-                              button=last;  
                         }
                    }
             }
